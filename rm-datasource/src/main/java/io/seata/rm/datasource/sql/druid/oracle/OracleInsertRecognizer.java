@@ -21,9 +21,6 @@ import com.alibaba.druid.sql.ast.expr.SQLIdentifierExpr;
 import com.alibaba.druid.sql.ast.expr.SQLValuableExpr;
 import com.alibaba.druid.sql.ast.statement.SQLExprTableSource;
 import com.alibaba.druid.sql.ast.statement.SQLInsertStatement;
-import com.alibaba.druid.sql.dialect.mysql.ast.statement.MySqlInsertStatement;
-import com.alibaba.druid.sql.dialect.mysql.visitor.MySqlOutputVisitor;
-import com.alibaba.druid.sql.dialect.oracle.ast.stmt.OracleDeleteStatement;
 import com.alibaba.druid.sql.dialect.oracle.ast.stmt.OracleInsertStatement;
 import com.alibaba.druid.sql.dialect.oracle.visitor.OracleOutputVisitor;
 import io.seata.rm.datasource.sql.SQLInsertRecognizer;
@@ -37,9 +34,13 @@ import java.util.List;
 /**
  * The type oralce insert recognizer.
  * @author ccg
- * @date 2019/3/25
+ * @date 2019/7/25
  */
 public class OracleInsertRecognizer extends BaseRecognizer implements SQLInsertRecognizer {
+
+    public OracleInsertStatement getAst() {
+        return ast;
+    }
 
     private final OracleInsertStatement ast;
 
